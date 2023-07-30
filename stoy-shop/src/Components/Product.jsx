@@ -1,14 +1,19 @@
+import './Product.css'
+
 export const Product = (props) => {
 
     const {id, productName, price, productImage, category} = props.data
     return (
-        <div>
+        <div className="product">
+                <p className="productHeader">{productName}</p>
             <img src={productImage}/>
-            <div>
-                <p><b>{productName}</b></p>
+            <div className="itemsDescription">
                 {/* used to fixed instead of assigning it directly to offer better way of pricing the items */}
-                <p><b>£{Number(price).toFixed(2)}</b></p>
+                <p>£{Number(price).toFixed(2)}</p>
             </div>
+            <button className="addBtn">
+                    Add To Cart
+                </button>
         </div>
     )
 }

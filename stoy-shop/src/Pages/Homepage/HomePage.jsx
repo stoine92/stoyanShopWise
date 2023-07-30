@@ -3,12 +3,11 @@ import { PRODUCTS } from "../../Data/PRODUCTS"
 import './HomePage.css';
 function HomePage () {
     return (
-        <div className="home-page-wrap"> 
+        <div > 
             <div className="header">
             <h1>Homepage</h1>
             </div>
-            <div className='product-list'>
-                {" "}
+            <div className='productList'>
             {PRODUCTS.map((item) => (
                 <Product key={item.id} data={item} />
             ))}
