@@ -1,9 +1,9 @@
 
 .product {
-  border-radius: 10px;
+    border-radius: 10px;
     border-radius: 15px;
-    width: 350px;
-    height: 500px;
+    width: 400px;
+    height: 550px;
     margin: 50px;
     padding: 15px; 
     display: flex;
@@ -49,3 +49,33 @@
     background-color: rgba(63, 110, 242, 0.9);
   }
   
+
+  .productDescription {
+    color: rgb(131, 129, 129);
+  }
+
+  .discountedPriceDiv {
+    display: inline-block;
+  }
+
+  .discountedPriceDiv p {
+    margin: 5px 5px;
+    
+  }
+
+  .newPrice {
+    color: #e62163;
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+    margin: 0;
+  }
+
+
+  .starsRating {
+    display: inline-flex;
+  }
