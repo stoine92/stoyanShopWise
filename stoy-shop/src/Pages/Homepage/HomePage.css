@@ -1,3 +1,11 @@
+.mainWrapDiv {
+  display: flex;
+}
+
+.componentsDiv{
+  width: 88%;
+}
+
 .header {
     text-align: center;
     margin-top: 20px;

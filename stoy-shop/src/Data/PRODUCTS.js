@@ -92,7 +92,7 @@ export const PRODUCTS = [
     {
         id: 9,
         productName: 'MacBook Pro 2023',
-        price: "£1699",
+        price: "1699",
         productImage: iphone14Img,
         category: "laptops",
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",

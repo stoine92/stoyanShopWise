@@ -10,7 +10,7 @@ import {CATEGORIES} from "../../Data/CATEGORIES"
 function Header() {
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
+    <Navbar expand="lg" bg="dark" data-bs-theme="dark" sticky="top">
       <Container>
       <img
               src={HeaderImage}

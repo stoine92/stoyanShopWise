@@ -1,36 +1,30 @@
 import { Product } from "../../Components/Product"
 import { PRODUCTS } from "../../Data/PRODUCTS"
-import './HomePage.css';
-import {useState} from 'react';
-import {Filter} from "../../Components/Filter";
+// import './HomePage.css';
+import {useState} from 'react'
 
-function HomePage (props) {
+function CategorySelected (props) {
 
     const productsPerPage = 6; 
     const [countDisplayed, setCountDisplayed] = useState(productsPerPage);
-    const [step, setStep] = useState(productsPerPage);
+    const [step, setStep] = useState(productsPerPage)
 
     const  handleShowMoreBtn = () => {
         const countItemsRemaining = PRODUCTS.length - countDisplayed;
         const toShowItems = Math.min(step, countItemsRemaining);
-
+        
         setCountDisplayed((prevItems) => prevItems + toShowItems)
     }
 
-   
-    const disableButtonChecker = countDisplayed >= PRODUCTS.length;
-
+    const disableButtonChecker = countDisplayed > PRODUCTS.length;
+    console.log(disableButtonChecker)
     return (
-        <div className="mainWrapDiv">
-            
-            <Filter />
-            
-            <div className="componentsDiv"> 
+            <div> 
                 <div className="header">
                 <h1>{props.heading}</h1>
                 </div>
                 <div className='productList'>
-                {PRODUCTS.slice(0, countDisplayed).map((item, index) => (
+                {PRODUCTS.filter((type) => type.category === props.filter).slice(0, countDisplayed).map((item) => (
                     <Product key={item.id} data={item} />
                 ))}
                 </div>
@@ -40,9 +34,8 @@ function HomePage (props) {
                 </div>
                 )}
             </div>
-            </div>
     )
 }
 
 
-export default HomePage
+export default CategorySelected

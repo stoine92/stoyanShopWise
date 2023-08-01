@@ -1,5 +1,8 @@
 import './Product.css'
 import {useEffect} from 'react';
+// import Button from 'react-bootstrap/Button';
+// import Card from 'react-bootstrap/Card';
+import Alert from 'react-bootstrap/Alert';
 
 export const Product = (props) => {
 
@@ -25,6 +28,8 @@ export const Product = (props) => {
 
 
     return (
+
+    <>
         <div className="product">
                 <p className="productHeader">{productName}</p>
             <img src={productImage}/>
@@ -42,9 +47,17 @@ export const Product = (props) => {
             <div className="starsRating">
                 {ratingCalculator(rating)}
             </div>
+
+                {/* <Alert key={productName} variant="success">
+          {productName} Added To Cart
+        </Alert> */}
             <button className="addBtn">
                     Add To Cart
                 </button>
+
         </div>
+</>
     )
 }
+
+
