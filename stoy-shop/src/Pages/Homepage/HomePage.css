@@ -46,3 +46,19 @@
   background-color: rgba(67, 67, 67, 0.1);
   /* color: rgba(255, 255, 255, 0.4); */
 }
+
+
+.itemCounterDiv {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  display: flex;
+  height: 80px;
+  align-items: flex-end;
+}
+.itemCounterDiv p {
+  margin: 20px;
+  font-weight: bold;
+}
+
+.itemCategoryCounter {
+  color: rgb(247, 162, 4);
+}

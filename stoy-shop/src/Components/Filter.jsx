@@ -70,8 +70,8 @@ export const Filter = () => {
                 
                 <Form.Select aria-label="Default select example">
                     <option>Sort: Relevance</option>
-                    <option value="1">Alphabetically: a - z</option>
-                    <option value="2">Alphabetically: z - a</option>
+                    <option value="1">Alphabetically: A - Z</option>
+                    <option value="2">Alphabetically: Z - A</option>
                     <option value="2">Price: low to high</option>
                     <option value="2">Price: low to high</option>
                 </Form.Select>

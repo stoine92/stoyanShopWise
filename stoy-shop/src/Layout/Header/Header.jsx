@@ -1,14 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Header.css'
+import {Container, Nav, Navbar, NavDropdown }from 'react-bootstrap';
 import HeaderImage from '../../Images/header.png';
 import { Link } from 'react-router-dom';
-import {CATEGORIES} from "../../Data/CATEGORIES"
-function Header() {
+import {CATEGORIES} from "../../Data/CATEGORIES";
+import { StoreContext } from '../../context/Context';
+import { useContext } from 'react';
+import {
+  MDBIcon,
+  MDBBadge
+} from 'mdb-react-ui-kit';
 
+function Header() {
+const {itemsCount} = useContext(StoreContext)
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark" sticky="top">
       <Container>
@@ -35,12 +39,20 @@ function Header() {
               
             </NavDropdown>
             <Nav.Link as={Link} to='/about-us'>About Us</Nav.Link>
-
           </Nav>
         </Navbar.Collapse>
+        <Link to="/cart">
+        <div   >  
+        {itemsCount > 0 && <MDBBadge pill color='danger'>{itemsCount}</MDBBadge>}
+              <span>
+                  <MDBIcon size='lg' fas icon='shopping-cart' color="white"></MDBIcon>
+              </span>
+              </div>
+              </Link>
       </Container>
     </Navbar>
   );
 }
 
 export default Header;
+

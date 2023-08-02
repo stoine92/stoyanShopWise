@@ -31,7 +31,7 @@ export const PRODUCTS = [
         productImage: galaxyZImg,
         category: "smartphones",
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
-        discounted: false,
+        discounted: true,
         rating: 4
 
     },{
@@ -123,16 +123,17 @@ export const PRODUCTS = [
         rating: 5
 
 
-    },{
-        id: 12,
-        productName: 'Lenovo ThinkPad X1 Carbon',
-        price: "1299",
-        productImage: iphone14Img,
-        category: "laptops",
-        productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
-        discounted: false,
-        rating: 3
+    },
+    // {
+    //     id: 12,
+    //     productName: 'Lenovo ThinkPad X1 Carbon',
+    //     price: "1299",
+    //     productImage: iphone14Img,
+    //     category: "laptops",
+    //     productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
+    //     discounted: false,
+    //     rating: 3
 
 
-    }
+    // }
 ]
