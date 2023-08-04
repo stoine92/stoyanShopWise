@@ -12,7 +12,8 @@
     margin-bottom: 40px;
 }
 
-.productList {
+.productList
+ {
   width: 100%;
   height: auto;
   display: grid;
@@ -59,6 +60,10 @@
 
 .itemCategoryCounter {
   color: rgb(247, 162, 4);
+}
+
+.productListFilterHidden {
+  display: none;
 }
 
 

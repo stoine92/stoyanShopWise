@@ -31,12 +31,9 @@ export default function Footer() {
                 Stoyan's Goodies
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
+                Discover our wide range of gadgets. Enjoy hassle-free shopping and exceptional customer service. Shop now and experience the joy of finding your perfect tool !
               </p>
             </MDBCol>
-
-
             <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>

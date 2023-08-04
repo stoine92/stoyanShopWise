@@ -1,18 +1,22 @@
 export const BRANDCHECKBOXES = [
     {
         id: 5,
-        label: 'Apple'
+        label: 'Apple',
+        val: 5
     },
     {
         id: 6,
-        label: 'Samsung'
+        label: 'Samsung',
+        val: 6
     },
     {
         id: 7,
-        label: 'Google Pixel'
+        label: 'Dell',
+        val: 7
     },
     {
         id: 8,
-        label: 'Oppo Smart'
+        label: 'HP',
+        val: 8
     }
 ]

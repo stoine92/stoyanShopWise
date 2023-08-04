@@ -13,13 +13,11 @@ const defaultCart = () => {
     return cart;
 }
 
-
- 
-
 export const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(defaultCart())
     const [itemsCount, setItemsCount] = useState(0);
     const [sortByPriceObj, setSortByPriceObj] = useState({})
+    const [sortByBrandObj, setSortByBrandObj] = useState({})
 
     const addCart = (item) => {
         setCartItems((prev) => ({...prev, [item]: prev[item] + 1}));
@@ -41,19 +39,6 @@ export const StoreContextProvider = (props) => {
         return total;
     }
 
-    // const sortByPrice = (firstVal, secondVal) => {
-    //     const priceSortObj = {
-    //         "1": [10, 1200],
-    //         "2": [1210, 1800],
-    //         "3": [1810, 2600],
-    //         "4": [2610, Number.MAX_SAFE_INTEGER]
-    //     }
-    
-    //     const aSortingOrder = priceSortObj[a];
-    //     const bSortingOrder = priceSortObj5[b];
-    //     return aSortingOrder[0] - bSortingOrder[0] || aSortingOrder[1] - bSortingOrder[1]
-    // }
-
     const sortByPrice = (item) => {
         switch(item){
             case "1":  setSortByPriceObj((prev) => ({...prev, [item]: 1})); break;
@@ -69,6 +54,21 @@ export const StoreContextProvider = (props) => {
         setSortByPriceObj(affectedItem);
     } 
 
-    const contextValue = {cartItems, addCart, removeCart, itemsCount, getTotalPrice, sortByPrice, removeSortByPrice, sortByPriceObj}
+    const sortByBrand = (item) => {
+        switch(item){
+            case "5":  setSortByBrandObj((prev) => ({...prev, [item]: 5})); break;
+            case "6":  setSortByBrandObj((prev) => ({...prev, [item]: 6})); break;
+            case "7":  setSortByBrandObj((prev) => ({...prev, [item]: 7})); break;
+            case "8":  setSortByBrandObj((prev) => ({...prev, [item]: 8})); break;
+        }
+    }
+    
+    const removeSortByBrand = (item) => {
+        const affectedItem = {...sortByBrandObj};
+        delete affectedItem[item];
+        setSortByBrandObj(affectedItem);
+    } 
+
+    const contextValue = {cartItems, addCart, removeCart, itemsCount, getTotalPrice, sortByPrice, removeSortByPrice, sortByPriceObj, sortByBrand, removeSortByBrand, sortByBrandObj}
     return <StoreContext.Provider value={contextValue}>{props.children}</StoreContext.Provider>
 }

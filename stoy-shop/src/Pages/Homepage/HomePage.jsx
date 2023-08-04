@@ -1,122 +1,92 @@
 import { Product } from "../../Components/Product"
 import { PRODUCTS } from "../../Data/PRODUCTS"
 import './HomePage.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {Filter} from "../../Components/Filter";
-import Carousel from 'react-bootstrap/Carousel';
 
-import testImg from '../../Images/personal.jpeg'
-
+import { StoreContext } from '../../context/Context';
 
 function HomePage (props) {
-    
+  const { sortByPriceObj, sortByBrandObj } = useContext(StoreContext);
     
     const productsPerPage = 6; 
     const [countDisplayed, setCountDisplayed] = useState(0);
     const [step, setStep] = useState(productsPerPage);
-    //HERE
-   const [selectedFilters, setSelectedFilters] = useState([]);
-   const [filteredItems, setFilteredItems] = useState(PRODUCTS);
+    const [lengthForDisplay, setLengthForDisplay] = useState(0)
 
-    let filters = [1, 2, 3, 4]
-
-   const handleFilterButtonClick = (selectedCategory) => {
-    //    if(selectedFilters.includes(selectedCategory)){
-    //     let filters = selectedFilters.filter((el) => el !== selectedCategory);
-    //     setSelectedFilters(filters)
-    //    }else {
-    //     setSelectedFilters([...selectedFilters, selectedCategory])
-    //    }
-   }
-    
-   
-    
- 
+   const [filteredProducts, setFilteredProducts] = useState([])
 
     const  handleShowMoreBtn = () => {
-        const countItemsRemaining = PRODUCTS.length - countDisplayed;
+        const countItemsRemaining = lengthForDisplay - countDisplayed;
         const toShowItems = Math.min(step, countItemsRemaining);
 
 
         setCountDisplayed((prevItems) => prevItems + toShowItems)
     }
 
-   
-    const disableButtonChecker = countDisplayed >= PRODUCTS.length;
-    // carrousel 
-    const [index, setIndex] = useState(0);
+    const disableButtonChecker = countDisplayed >= lengthForDisplay;
+    const [sortedValue, setSortedValue] = useState(PRODUCTS)
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+    const handleSortBy = (sortType) => {
+      switch(sortType){
+        case "1": const sortingAsc = [...sortedValue].sort((a, b) => a.productName.localeCompare(b.productName)); setSortedValue(sortingAsc); break;
+        case "2": const sortingDesc = [...sortedValue].sort((a, b) => b.productName.localeCompare(a.productName)); setSortedValue(sortingDesc); break;
+        case "3": const sortingAlph = [...sortedValue].sort((a, b) => a.price - b.price); setSortedValue(sortingAlph); break;
+        case "4": const sortingNegAlph = [...sortedValue].sort((a, b) => b.price - a.price); setSortedValue(sortingNegAlph); break;
+        default: setSortedValue([...PRODUCTS]);
+      }
+    }
 
-  const onFilterValueSelected = (filterValue) => {
-    handleFilterButtonClick(Number(filterValue))
-  }
 
     useEffect(() => {
-        setCountDisplayed(PRODUCTS.length >= productsPerPage ? productsPerPage : PRODUCTS.length)
-    },[props.heading])
+        setCountDisplayed(lengthForDisplay >= productsPerPage ? productsPerPage : lengthForDisplay)
+    },[props.heading, lengthForDisplay])
 
-//    useEffect(() => {
-//     filterItems()
-//    }, [selectedFilters])
 
-//    const filterItems = () => {
-//        if(selectedFilters.length > 0){
-//            let tempItems = selectedFilters.map((selectedCategory) => {
-//                let temp = PRODUCTS.filter((item) => item.category === selectedCategory);
-//                return temp;
-//            })
-//            setFilteredItems(tempItems.flat())
-//            console.log(filteredItems)
-//        }else {
-//         setFilteredItems([...PRODUCTS])
-//        }
-//    }
+  useEffect(() => {
+    let sortByLength = Object.values(sortByPriceObj);
+    let sortByBrandLength = Object.values(sortByBrandObj);
+
+    if (sortByLength.length > 0 || sortByBrandLength.length > 0) {
+      let filtered = [...sortedValue];
+  
+      if (sortByBrandLength.length > 0) {
+     
+        filtered = filtered.filter((type) => sortByBrandLength.includes(type.brand));
+      }
+  
+      if (sortByLength.length > 0) {
+      
+        filtered = filtered.filter((type) => sortByLength.includes(type.priceRange));
+      }
+      setFilteredProducts(filtered.slice(0, countDisplayed));
+      setLengthForDisplay(filtered.length)
+    } else {
+ 
+      setFilteredProducts(sortedValue.slice(0, countDisplayed));
+      setLengthForDisplay(sortedValue.length)
+    }
+  }, [sortByPriceObj, sortByBrandObj, countDisplayed, sortedValue]);
+
     return (
       
         <div className="mainWrapDiv">
             
-            <Filter onFilterValueSelected={onFilterValueSelected}/>
+            <Filter handleSortBy={handleSortBy} page="1"/>
             
             <div className="componentsDiv"> 
             <div className="itemCounterDiv">
-                <p>1-{countDisplayed} over {PRODUCTS.length} results for <span className="itemCategoryCounter">"{props.heading}"</span></p>
+               
+             <p>{countDisplayed > 0 
+            ? 
+            `1-${countDisplayed} over ${lengthForDisplay}` : countDisplayed} results for <span className="itemCategoryCounter">"{props.heading}"</span></p>
             </div>
-            {/* <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-          <img src={testImg} /> 
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel> */}
+            
                 <div className="header">
                 <h1>{props.heading}</h1>
                 </div>
-                <div className='productList'>
-                {/* {PRODUCTS.slice(0, countDisplayed).map((item, index) => (
-                    <Product key={item.id} data={item} />
-                ))} */}
-                {filteredItems.map((item, index) => (
-                    <Product key={item.id} data={item} />
-                ))}
+                <div className="productList">
+              {filteredProducts.map((item) => ( <Product key={item.id} data={item} /> ))}
                 </div>
                 {!disableButtonChecker && (
                     <div className="loadMoreBtnWrap">
@@ -130,7 +100,6 @@ function HomePage (props) {
 
 
 export default HomePage
-
 
 
 

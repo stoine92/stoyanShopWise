@@ -13,7 +13,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: true,
         rating: 5,
-        priceRange: 1
+        priceRange: 1,
+        brand: 5
     },
     {
         id: 2,
@@ -24,7 +25,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 3,
-        priceRange: 2
+        priceRange: 2,
+        brand: 6
     },{
         id: 3,
         productName: 'Samsung Galaxy Z-Flip',
@@ -34,8 +36,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: true,
         rating: 4,
-        priceRange: 2
-
+        priceRange: 2,
+        brand: 6
     },{
         id: 4,
         productName: 'Apple Iphone 14 Pro',
@@ -45,8 +47,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 2,
-        priceRange: 3
-
+        priceRange: 3,
+        brand: 5
     },
     {
         id: 5,
@@ -57,8 +59,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: true,
         rating: 2,
-        priceRange: 3
-
+        priceRange: 3,
+        brand: 5
     },{
         id: 6,
         productName: 'Samsung Galaxy Tab S8 Ultra',
@@ -68,9 +70,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 5,
-        priceRange: 1
-
-
+        priceRange: 1,
+        brand: 6
     },{
         id: 7,
         productName: 'Apple IPad Pro 11"',
@@ -80,8 +81,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 4,
-        priceRange: 1
-
+        priceRange: 1,
+        brand: 5
 
     },{
         id: 8,
@@ -92,8 +93,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 4,
-        priceRange: 1
-
+        priceRange: 1,
+        brand: 6
 
     },
     {
@@ -105,8 +106,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 1,
-        priceRange: 1
-
+        priceRange: 1,
+        brand: 5
     },
     {
         id: 10,
@@ -117,8 +118,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 1,
-        priceRange: 2
-
+        priceRange: 2,
+        brand: 7
 
     },{
         id: 11,
@@ -129,7 +130,8 @@ export const PRODUCTS = [
         productDescription: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, optio!",
         discounted: false,
         rating: 5,
-        priceRange: 1
+        priceRange: 1,
+        brand: 8
     },
     // {
     //     id: 12,
