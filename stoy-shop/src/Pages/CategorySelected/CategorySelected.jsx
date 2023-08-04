@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Filter } from "../../Components/Filter";
 import { StoreContext } from '../../context/Context';
 function CategorySelected (props) {
-    const { sortByPriceObj, sortByBrandObj } = useContext(StoreContext);
+    const { sortByPriceObj, sortByBrandObj, setSortByPriceObj, setSortByBrandObj } = useContext(StoreContext);
 
     const test = PRODUCTS.filter((type) => type.category === props.filter).length;
     const productsPerPage = 6; 
@@ -63,6 +63,15 @@ function CategorySelected (props) {
             setLengthForDisplay(sortedValue.filter((type) => type.category === props.filter).length)
         }
       }, [sortByPriceObj, sortByBrandObj, countDisplayed, sortedValue]);
+
+      useEffect(() => {
+        setSortByPriceObj({})
+        setSortByBrandObj({})
+        
+            setFilteredProducts(PRODUCTS.filter((type) => type.category === props.filter).slice(0, countDisplayed));
+            setLengthForDisplay(PRODUCTS.filter((type) => type.category === props.filter).length)
+        
+      }, [props.heading]);
 
 
     return (

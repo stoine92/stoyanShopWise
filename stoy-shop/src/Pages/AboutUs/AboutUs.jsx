@@ -11,7 +11,7 @@ function AboutUs() {
       <Card.Body>
         <Card.Title>Stoyan Nikolov</Card.Title>
         <Card.Text>
-          Passionate web developer who is looking to return back to his homeland 
+          Passionate Software Developer always seeking to improve my skills and pursue my dreams into the software industry. 
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
@@ -19,7 +19,7 @@ function AboutUs() {
         <ListGroup.Item><MDBIcon color='secondary' icon='envelope' className='me-3' />stoyan.iv.nikolov@gmail.com</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">CV Resume</Card.Link>
+        <Card.Link href={require("../../Assets/Files/StoyanCVResume.pdf")} download="myFile">CV Resume</Card.Link>
       </Card.Body>
     </Card>
     </div>

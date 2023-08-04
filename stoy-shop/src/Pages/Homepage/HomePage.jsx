@@ -7,7 +7,7 @@ import {Filter} from "../../Components/Filter";
 import { StoreContext } from '../../context/Context';
 
 function HomePage (props) {
-  const { sortByPriceObj, sortByBrandObj } = useContext(StoreContext);
+  const { sortByPriceObj, sortByBrandObj, setSortByPriceObj, setSortByBrandObj } = useContext(StoreContext);
     
     const productsPerPage = 6; 
     const [countDisplayed, setCountDisplayed] = useState(0);
@@ -67,6 +67,15 @@ function HomePage (props) {
       setLengthForDisplay(sortedValue.length)
     }
   }, [sortByPriceObj, sortByBrandObj, countDisplayed, sortedValue]);
+
+  useEffect(() => {
+    setSortByPriceObj({})
+    setSortByBrandObj({})
+
+      setFilteredProducts(PRODUCTS.slice(0, countDisplayed));
+      setLengthForDisplay(PRODUCTS.length)
+    
+  }, [props.heading]);
 
     return (
       

@@ -19,6 +19,7 @@ export const StoreContextProvider = (props) => {
     const [sortByPriceObj, setSortByPriceObj] = useState({})
     const [sortByBrandObj, setSortByBrandObj] = useState({})
 
+   
     const addCart = (item) => {
         setCartItems((prev) => ({...prev, [item]: prev[item] + 1}));
         setItemsCount((oldState) => oldState + 1)
@@ -69,6 +70,6 @@ export const StoreContextProvider = (props) => {
         setSortByBrandObj(affectedItem);
     } 
 
-    const contextValue = {cartItems, addCart, removeCart, itemsCount, getTotalPrice, sortByPrice, removeSortByPrice, sortByPriceObj, sortByBrand, removeSortByBrand, sortByBrandObj}
+    const contextValue = {cartItems, addCart, removeCart, itemsCount, getTotalPrice, sortByPrice, removeSortByPrice, sortByPriceObj, sortByBrand, removeSortByBrand, sortByBrandObj, setSortByPriceObj, setSortByBrandObj}
     return <StoreContext.Provider value={contextValue}>{props.children}</StoreContext.Provider>
 }

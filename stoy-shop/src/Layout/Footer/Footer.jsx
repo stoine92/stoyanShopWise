@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-
+import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <MDBFooter className='text-center text-lg-start bg-dark text-center text-white'>
@@ -10,13 +10,13 @@ export default function Footer() {
         </div>
 
         <div>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://www.instagram.com/stoyan.nikolov92/?hl=bg' target="_blank" className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='instagram' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://www.linkedin.com/in/stoyan-nikolov-660a0491/' target="_blank" className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='linkedin' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='https://github.com/stoine92/stoyanShopWise' target="_blank" className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='github' />
           </a>
         </div>
@@ -37,14 +37,14 @@ export default function Footer() {
             <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
-                <span className='text-reset'>
+                <Link to="/terms" className='text-reset' target="_blank">
                   Terms &amp; Conditions
-                </span>
+                </Link>
               </p>
               <p>
-                <span className='text-reset'>
+                <Link to="/privacy" className='text-reset' target="_blank">
                   Privacy Polocy
-                </span>
+                </Link>
               </p>
             </MDBCol>
 

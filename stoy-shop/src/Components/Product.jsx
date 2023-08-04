@@ -4,14 +4,30 @@ import Button from 'react-bootstrap/Button';
 import MyModal from './Modal';
 import { MDBIcon } from 'mdb-react-ui-kit';
 import {useState, useContext} from 'react';
-import { StoreContext } from "../context/Context"
+import { StoreContext } from "../context/Context";
+
 
 export const Product = (props) => {
     const { addCart } = useContext(StoreContext);
-
     const [modalShow, setModalShow] = useState(false);
+    
+    const [handleAlertShow, setHandleAlertShow] = useState(false);
 
-    const {id, productName, price, productImage, category, productDescription, discounted, rating} = props.data
+    const handleAlert = () => {
+        setHandleAlertShow(true);
+        setTimeout(() => {
+        setHandleAlertShow(false);
+
+        }, 800)
+    }
+
+    const handleFunctionality = (id) => {
+        addCart(id)
+        handleAlert();
+    }
+ 
+
+    const {id, productName, price, productImage, category, productDescription, mainDescription, discounted, rating} = props.data
 
     const starsArray = [];
     
@@ -56,18 +72,30 @@ export const Product = (props) => {
                 {/* <Alert key={productName} variant="success">
           {productName} Added To Cart
         </Alert> */}
-            <button className="addBtn" onClick={() => addCart(id)}>
+            <button className="addBtn" onClick={() => handleFunctionality(id)}>
                     Add To Cart
                 </button>
-                <Button variant="link" onClick={() => setModalShow(true)}>More Info</Button>
+                <Button variant="link" onClick={() => {setModalShow(true); handleAlert();}}>More Info</Button>
+                {handleAlertShow &&
+                <Alert variant="success">
+                    Item Successfully Added !
+                </Alert> }
                 
                 <MyModal
+                category={category}
+                header={productName}
+                text={mainDescription}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 />
+                
         </div>
 </>
     )
 }
+
+
+
+
 
 

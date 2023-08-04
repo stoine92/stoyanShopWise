@@ -14,6 +14,13 @@ function Cart () {
                     <div className="header">
                         <h1>{totalPrice <= 0 ? `Your Basket Is Empty` : `Your Cart Items`}</h1>
                     </div>
+                    <div className="checkoutWrap">
+                    <div className="checkout">  
+                        <Link to="/" className="cartBtn" >Continue Shopping</Link>
+                       {totalPrice <= 0 ? "" : <span className="cartBtn" >Checkout</span>} 
+                    </div>
+                        <p className="totalP"><b>Subtotal: </b>£{totalPrice.toFixed(2)}</p>
+                        </div>
                     <div className="cartProductList">
                         {PRODUCTS.map((item) => {
                             if(cartItems[item.id] !== 0){
@@ -21,11 +28,7 @@ function Cart () {
                             } 
                         })}
                     </div>
-                    <div className="checkout">  
-                        <p>Subtotal: £{totalPrice.toFixed(2)}</p>
-                        <Link to="/" className="cartBtn" >Continue Shopping</Link>
-                       {totalPrice <= 0 ? "" : <span className="cartBtn" >Checkout</span>} 
-                    </div>
+                    
                     </div>
         </div>
     )

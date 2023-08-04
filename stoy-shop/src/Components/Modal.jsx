@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function MyModal(props) {
+  const {category, header, text} = props;
   return (
     <Modal
       {...props}
@@ -11,15 +12,13 @@ function MyModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Smartphones
+          {category}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Iphone 14 Pro</h4>
+        <h4>{header}</h4>
         <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
+          {text}
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -30,3 +29,6 @@ function MyModal(props) {
 }
 
 export default MyModal;
+
+
+

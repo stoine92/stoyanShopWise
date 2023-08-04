@@ -21,10 +21,13 @@
   }
 
     .product img {
-        margin-bottom: 30px;
+        /* margin-bottom: 30px;
         width: 100%;
         max-width: 200px;
-        height: auto;
+        height: auto; */
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
     }
 
     .product:hover {

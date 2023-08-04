@@ -6,6 +6,8 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import CategorySelected from './Pages/CategorySelected/CategorySelected';
 import { StoreContextProvider } from "./context/Context";
 import Cart from './Pages/Cart/Cart';
+import Terms from './Pages/UsefulLinks/Terms';
+import Privacy from './Pages/UsefulLinks/PrivacyPolicy';
 
 function App() {
   return (
@@ -29,6 +31,12 @@ function App() {
     } />
     <Route path="/cart" element={
           <Cart />
+    } />
+    <Route path="/terms" element={
+          <Terms />
+    } />
+    <Route path="/privacy" element={
+          <Privacy />
     } />
     </Routes>
     </Layout>

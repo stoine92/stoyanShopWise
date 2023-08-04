@@ -11,8 +11,13 @@ import {
   MDBBadge
 } from 'mdb-react-ui-kit';
 
+
+
 function Header() {
 const {itemsCount} = useContext(StoreContext)
+const {getTotalPrice} = useContext(StoreContext);
+const totalPrice = getTotalPrice();
+
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark" sticky="top">
       <Container>
@@ -42,13 +47,14 @@ const {itemsCount} = useContext(StoreContext)
           </Nav>
         </Navbar.Collapse>
         <Link to="/cart">
-        <div   >  
+        <div>  
         {itemsCount > 0 && <MDBBadge pill color='danger'>{itemsCount}</MDBBadge>}
               <span>
                   <MDBIcon size='lg' fas icon='shopping-cart' color="white"></MDBIcon>
               </span>
               </div>
               </Link>
+        <p className="cartPHeader">Total: £{totalPrice.toFixed(2)}</p>
       </Container>
     </Navbar>
   );
