@@ -16,7 +16,7 @@
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   place-items: center;
 }
 
@@ -26,7 +26,6 @@
   padding: 35px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -44,7 +43,6 @@
 
 .loadMoreBtn:hover {
   background-color: rgba(67, 67, 67, 0.1);
-  /* color: rgba(255, 255, 255, 0.4); */
 }
 
 
@@ -61,4 +59,23 @@
 
 .itemCategoryCounter {
   color: rgb(247, 162, 4);
+}
+
+
+@media (max-width: 768px){
+  .mainWrapDiv {
+    display: grid;
+  }
+    .productList {
+      grid-template-columns: repeat(1, 1fr)
+    }
+}
+
+@media (max-width: 480px){
+  .mainWrapDiv {
+    display: grid;
+  }
+  .componentsDiv {
+    width: 100%;
+  }
 }

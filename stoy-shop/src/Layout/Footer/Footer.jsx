@@ -40,19 +40,14 @@ export default function Footer() {
             <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
-                <a href='#!' className='text-reset'>
+                <span className='text-reset'>
                   Terms &amp; Conditions
-                </a>
+                </span>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                <span className='text-reset'>
                   Privacy Polocy
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Contact Us
-                </a>
+                </span>
               </p>
             </MDBCol>
 

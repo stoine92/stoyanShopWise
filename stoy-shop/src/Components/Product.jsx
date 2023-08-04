@@ -39,11 +39,11 @@ export const Product = (props) => {
                 <p className="productHeader">{productName}</p>
             <img src={productImage}/>
             <div className="itemsDescription">
-                {/* used to fixed instead of assigning it directly to offer better way of pricing the items */}
+
                 <p className="productDescription">{productDescription}</p>
                 {discounted ? 
                 <div className="discountedPriceDiv">
-                <p className="newPrice">£{Number(price * 0.8).toFixed(2)}</p> 
+                <p className="newPrice">£{(Number(price) * 0.8).toFixed(2)}</p> 
                 <p className="oldPrice">£{Number(price).toFixed(2)}</p>
                 </div> 
                 : 

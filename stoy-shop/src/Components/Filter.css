@@ -1,5 +1,6 @@
 .filterDiv{
     width: 12%;
+    min-width: 150px;
     background-color: rgb(255, 255, 255);
   }
   .filterBody {
@@ -22,3 +23,31 @@
     /* background-color: green; */
     color: rgb(145, 155, 157);
   }
+
+
+
+  @media (max-width: 768px){
+    .filterDiv{
+      width: 100%;
+    }
+    .filterBody {
+      /* background-color: green; */
+      padding: 0px 0 25px 0 ;
+    }
+    .sortHeader{
+      margin-top: 10px;
+    }
+} 
+
+@media (max-width: 480px){
+  .filterDiv{
+    width: 100%;
+  }
+  .filterBody {
+    /* background-color: green; */
+    padding: 0px 0 25px 0 ;
+  }
+  .sortHeader{
+    margin-top: 10px;
+  }
+} 

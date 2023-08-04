@@ -1,23 +1,34 @@
 import { useState } from "react";
 import { PRICECHECKBOXES } from "../Data/PRICECHECKBOXES";
 import { BRANDCHECKBOXES } from "../Data/BRANDCHECKBOXES";
-
+import { PRODUCTS } from "../Data/PRODUCTS";
 import './Filter.css'
 
 import Form from 'react-bootstrap/Form';
 import Accordion from 'react-bootstrap/Accordion';
 
-export const Filter = () => {
+import { useContext } from 'react';
+import { StoreContext } from '../context/Context';
 
-    const [checkboxCounterPrice, setCheckboxCounterPrice] = useState(0);
-    const [checkboxCounterBrand, setCheckboxCounterBrand] = useState(0);
+export const Filter = ({onFilterValueSelected}) => {
 
+
+    const [checkboxCounterPrice, setCheckboxCounterPrice] = useState({});
+    const [checkboxCounterBrand, setCheckboxCounterBrand] = useState({});
+
+    const { sortByPrice, removeSortByPrice} = useContext(StoreContext);
+    
+    const [arr, setArr] = useState([])
     const handleCheckBoxSelectedPrice = (e) => {
-        if(e.target.checked === true){
-            setCheckboxCounterPrice(oldState => oldState + 1)
-        }else {
-            setCheckboxCounterPrice(oldState => oldState - 1)
-        }
+        const dataId = e.target.getAttribute('data-id');
+        
+        onFilterValueSelected(dataId)
+
+        // if(e.target.checked === true){
+        //     sortByPrice(dataId)
+        // }else {
+        //     removeSortByPrice(dataId)
+        // }
     }
     const handleCheckBoxSelectedBrand = (e) => {
         if(e.target.checked === true){
@@ -26,6 +37,8 @@ export const Filter = () => {
             setCheckboxCounterBrand(oldState => oldState - 1)
         }
     }
+
+
     return (
         <div className="filterDiv">
                 <div className="filterHeader">
@@ -42,7 +55,8 @@ export const Filter = () => {
                     type='checkbox'
                     id={`checkbox-${checkboxes.id}`}
                     label={checkboxes.label}
-                    onChange={handleCheckBoxSelectedPrice}
+                    data-id={checkboxes.id}
+                    onChange={(e) => handleCheckBoxSelectedPrice(e)}
                 />
                 ))}
                     </Accordion.Body>
@@ -55,8 +69,9 @@ export const Filter = () => {
                     <Form.Check 
                     type='checkbox'
                     id={`checkbox-${checkboxes.id}`}
+                    data-id={checkboxes.id}
                     label={checkboxes.label}
-                    onChange={handleCheckBoxSelectedBrand}
+                    onChange={(e) => handleCheckBoxSelectedBrand(e)}
                 />
                 ))}
                     </Accordion.Body>
@@ -72,8 +87,8 @@ export const Filter = () => {
                     <option>Sort: Relevance</option>
                     <option value="1">Alphabetically: A - Z</option>
                     <option value="2">Alphabetically: Z - A</option>
-                    <option value="2">Price: low to high</option>
-                    <option value="2">Price: low to high</option>
+                    <option value="3">Price: low to high</option>
+                    <option value="4">Price: low to high</option>
                 </Form.Select>
                 </div>
             </div>
