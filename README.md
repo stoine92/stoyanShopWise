@@ -31,6 +31,14 @@ This is an online application exampling a ecommerce store where you can find ele
 10.  Total Price Counter
 
 
+## Technologies
+
+1. React.JS
+2. Node.JS
+3. react-router-dom
+4. React Bootstrap
+5. MDB Bootstrap
+
  ## Contribution 
 
 Contributions are not expected. This is personal application
