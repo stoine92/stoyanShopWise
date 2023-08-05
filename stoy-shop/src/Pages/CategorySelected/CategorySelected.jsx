@@ -23,6 +23,7 @@ function CategorySelected (props) {
     }
 
     const handleSortByCategories = (sortType) => {
+
         switch(sortType){
           case "1": const sortingAsc = [...sortedValue].sort((a, b) => a.productName.localeCompare(b.productName)); setSortedValue(sortingAsc); break;
           case "2": const sortingDesc = [...sortedValue].sort((a, b) => b.productName.localeCompare(a.productName)); setSortedValue(sortingDesc); break;

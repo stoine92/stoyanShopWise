@@ -12,11 +12,12 @@ function MyModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {category}
+          {`Key Features: ${category}`}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <h4>{header}</h4>
+        <br />
         <p>
           {text}
         </p>

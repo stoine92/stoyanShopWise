@@ -17,7 +17,6 @@ export const Product = (props) => {
         setHandleAlertShow(true);
         setTimeout(() => {
         setHandleAlertShow(false);
-
         }, 800)
     }
 
@@ -75,7 +74,7 @@ export const Product = (props) => {
             <button className="addBtn" onClick={() => handleFunctionality(id)}>
                     Add To Cart
                 </button>
-                <Button variant="link" onClick={() => {setModalShow(true); handleAlert();}}>More Info</Button>
+                <Button variant="link" onClick={() => setModalShow(true)}>More Info</Button>
                 {handleAlertShow &&
                 <Alert variant="success">
                     Item Successfully Added !

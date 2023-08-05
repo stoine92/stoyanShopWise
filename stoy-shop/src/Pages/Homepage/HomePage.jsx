@@ -28,6 +28,7 @@ function HomePage (props) {
     const [sortedValue, setSortedValue] = useState(PRODUCTS)
 
     const handleSortBy = (sortType) => {
+     
       switch(sortType){
         case "1": const sortingAsc = [...sortedValue].sort((a, b) => a.productName.localeCompare(b.productName)); setSortedValue(sortingAsc); break;
         case "2": const sortingDesc = [...sortedValue].sort((a, b) => b.productName.localeCompare(a.productName)); setSortedValue(sortingDesc); break;
@@ -44,6 +45,7 @@ function HomePage (props) {
 
 
   useEffect(() => {
+
     let sortByLength = Object.values(sortByPriceObj);
     let sortByBrandLength = Object.values(sortByBrandObj);
 
