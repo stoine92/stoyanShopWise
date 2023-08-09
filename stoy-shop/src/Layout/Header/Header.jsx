@@ -26,7 +26,7 @@ const totalPrice = getTotalPrice();
               width="75"
               height="45"
               className="d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt="Header company logo"
             />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

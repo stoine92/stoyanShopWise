@@ -10,7 +10,7 @@ export const CartItem = ({data}) => {
         <div className="cartProduct">
                 <p className="cartProductHeader"><b>{productName}</b></p>
            
-            <img src={productImage}/>
+            <img src={productImage} alt={`Product Image: ${productName}`}/>
             <div>
                 <div className="cartItemsDescription">
                 {/* used to fixed instead of assigning it directly to offer better way of pricing the items */}
