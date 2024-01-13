@@ -1,10 +1,10 @@
 import './Product.css'
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
-import MyModal from './Modal';
+import MyModal from '../Modal/Modal';
 import { MDBIcon } from 'mdb-react-ui-kit';
 import {useState, useContext} from 'react';
-import { StoreContext } from "../context/Context";
+import { StoreContext } from "../../context/Context";
 
 
 export const Product = (props) => {
@@ -68,9 +68,6 @@ export const Product = (props) => {
                 {ratingCalculator(rating)}
             </div>
 
-                {/* <Alert key={productName} variant="success">
-          {productName} Added To Cart
-        </Alert> */}
             <button className="addBtn" onClick={() => handleFunctionality(id)}>
                     Add To Cart
                 </button>

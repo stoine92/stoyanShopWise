@@ -1,10 +1,11 @@
-import { Product } from "../../Components/Product"
+import { Product } from "../../Components/Product/Product"
 import { PRODUCTS } from "../../Data/PRODUCTS"
 import './HomePage.css';
 import { useState, useEffect, useContext } from 'react';
-import {Filter} from "../../Components/Filter";
+import {Filter} from "../../Components/Filter/Filter";
 
 import { StoreContext } from '../../context/Context';
+import { sortByPriceBrand } from "./HomePageFuncs";
 
 function HomePage (props) {
   const { sortByPriceObj, sortByBrandObj, setSortByPriceObj, setSortByBrandObj } = useContext(StoreContext);
@@ -45,29 +46,15 @@ function HomePage (props) {
 
 
   useEffect(() => {
+    sortByPriceBrand({
+      sortByPriceObj, 
+      sortByBrandObj, 
+      sortedValue, 
+      setFilteredProducts, 
+      setLengthForDisplay, 
+      countDisplayed
+    });
 
-    let sortByLength = Object.values(sortByPriceObj);
-    let sortByBrandLength = Object.values(sortByBrandObj);
-
-    if (sortByLength.length > 0 || sortByBrandLength.length > 0) {
-      let filtered = [...sortedValue];
-  
-      if (sortByBrandLength.length > 0) {
-     
-        filtered = filtered.filter((type) => sortByBrandLength.includes(type.brand));
-      }
-  
-      if (sortByLength.length > 0) {
-      
-        filtered = filtered.filter((type) => sortByLength.includes(type.priceRange));
-      }
-      setFilteredProducts(filtered.slice(0, countDisplayed));
-      setLengthForDisplay(filtered.length)
-    } else {
- 
-      setFilteredProducts(sortedValue.slice(0, countDisplayed));
-      setLengthForDisplay(sortedValue.length)
-    }
   }, [sortByPriceObj, sortByBrandObj, countDisplayed, sortedValue]);
 
   useEffect(() => {

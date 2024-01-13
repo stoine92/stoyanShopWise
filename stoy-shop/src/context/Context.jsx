@@ -9,6 +9,7 @@ const defaultCart = () => {
     let cart = {}
     for(let i = 1; i < PRODUCTS.length + 1; i++ ){
         cart[i] = 0;
+        
     }
     return cart;
 }
@@ -18,11 +19,10 @@ export const StoreContextProvider = (props) => {
     const [itemsCount, setItemsCount] = useState(0);
     const [sortByPriceObj, setSortByPriceObj] = useState({})
     const [sortByBrandObj, setSortByBrandObj] = useState({})
-
    
     const addCart = (item) => {
         setCartItems((prev) => ({...prev, [item]: prev[item] + 1}));
-        setItemsCount((oldState) => oldState + 1)
+        setItemsCount((oldState) => oldState + 1);
     }
     const removeCart = (item) => {
         setCartItems((prev) => ({...prev, [item]: prev[item] - 1}));
@@ -34,7 +34,11 @@ export const StoreContextProvider = (props) => {
         for (const item in cartItems){
             if(cartItems[item] > 0) {
                 let info = PRODUCTS.find((line) => line.id === Number(item))
-                total+= cartItems[item] * info.price;
+                if(info.discounted){
+                    total+= cartItems[item] * (info.price * 0.8);
+                }else {
+                    total+= cartItems[item] * info.price;
+                }
             }
         }
         return total;

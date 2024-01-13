@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { PRICECHECKBOXES } from "../Data/PRICECHECKBOXES";
-import { BRANDCHECKBOXES } from "../Data/BRANDCHECKBOXES";
+import { PRICECHECKBOXES } from "../../Data/PRICECHECKBOXES";
+import { BRANDCHECKBOXES } from "../../Data/BRANDCHECKBOXES";
 import './Filter.css'
 
 import Form from 'react-bootstrap/Form';
 import Accordion from 'react-bootstrap/Accordion';
 
 import { useContext } from 'react';
-import { StoreContext } from '../context/Context';
+import { StoreContext } from '../../context/Context';
 
 export const Filter = ({handleSortBy, handleSortByCategories, page}) => {
 

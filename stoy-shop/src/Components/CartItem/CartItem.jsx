@@ -1,6 +1,6 @@
 import './CartItem.css'
 import { useContext } from 'react';
-import { StoreContext } from '../context/Context';
+import { StoreContext } from '../../context/Context';
 
 export const CartItem = ({data}) => {
     const {id, productName, price, productImage, category, productDescription, discounted, rating} = data;
