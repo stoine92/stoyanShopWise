@@ -9,7 +9,6 @@ function Cart () {
     const totalPrice = getTotalPrice();
     return (
         <div className="cartMainWrapDiv">
-            
                     <div className="cartComponentsDiv">
                     <div className="header">
                         <h1>{totalPrice <= 0 ? `Your Basket Is Empty` : `Your Cart Items`}</h1>
